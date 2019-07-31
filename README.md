@@ -1,5 +1,13 @@
 # Etch-a-Sketch
 The Odin Project Assignment
 
+WHAT TO CHANGE:
+- grid-template-columns
+- width
+- height
 
-Use index-play.html, play-script.js and play-style.css.
+-> if the grid is > 4, make row and column,
+    if not, only the row
+
+-> if size is <= 4, change WIDTH only
+    else > 4, change WIDTH and HEIGHT

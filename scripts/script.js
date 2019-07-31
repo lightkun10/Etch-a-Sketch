@@ -1,36 +1,54 @@
-const container = document.querySelector('#container');
+const containers = document.querySelector('.container')
+const container = document.querySelector('#grid')
 
-let createGrid = (size=16) => {
-    let grid = document.createElement('div');
-    grid.setAttribute('id', 'sketch');
+container.addEventListener('mouseover', (e) => {
+  e.target.style.backgroundColor = '#000';
+})
 
-    grid.style.setProperty('--setGrid', size)
-    addSquare(grid)
+// function that load the grid
+let makeGrid = (size) => {
+  if(size <= 4) {
+    for(let rows = 0; rows < size; rows++) {
+      let box = document.createElement('div');
 
-    container.appendChild(grid);
+      let newSize = 500 / size;
 
-    /***************EXPERIMENT***********/
-    let newSquareBtn = document.querySelector('#newSquare')
-    newSquareBtn.addEventListener('click', (e) => addSquare(grid))
+      box.style.width = `${newSize}px`;
+      box.style.height = '500px';
+      
+      box.classList.add('box')
+      container.appendChild(box);
+      containers.appendChild(container)
+    } 
+  } else if(size > 4) {
+      for(let rows = 0; rows < size; rows++) {
+        for(let columns = 0; columns < size; columns++) {
+          let box = document.createElement('div');
+          box.classList.add('box')
+
+          container.style.gridTemplateColumns = `repeat(${size}, 1fr)`
+          let newSize = 500 / size - 0.9;
+
+          box.style.width = `${newSize}px`;
+          box.style.height = `${newSize}px`;
+
+          container.appendChild(box);
+          containers.appendChild(container);
+      }
+    }
+  }
 }
 
-let addSquare = (element) => {
-    let square = document.createElement('div');
-    square.classList.add('square')
+// add button effect to reset grid
+let newGrid = document.querySelector('#newGrid');
+newGrid.addEventListener('click', (e) => {
+  for(let i=0; i < container.children.length; i+container.children.length) {
+    container.removeChild(container.children[i])
+  }
+  let size = prompt('How many boxes per sides?')
 
-    // for(i = square; i < element)
+  makeGrid(size);
+})
 
-    square.addEventListener('mouseover', (e) => {
-        console.log(e);
-    })
-    
-
-    element.appendChild(square);
-}
-
-createGrid()
-
-
-// /***************EXPERIMENT***********/
-// let newSquareBtn = document.querySelector('#newSquare')
-// newSquareBtn.addEventListener('click', (e) => addSquare(grid))
+// call the function
+makeGrid(16);
