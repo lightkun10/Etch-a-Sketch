@@ -1,11 +1,16 @@
 .container {
     max-width: 500px;
+    width: 500px;
+    height: 500px;
     border: 12px solid red;
-    margin: 13rem auto;
+    margin: 4rem auto;
 }
 
 #grid {
-    width: 500px;
+    /* width: 500px;
+    height: 500px; */
+    margin: 0;
+    padding: 0;
     display: grid;
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(16, 1fr);
@@ -14,34 +19,17 @@
 }
 
 .box {
-  width: 30px;
-  height: 30px;
-  background-color: #fff;
-}
-
-#box2 {
-  width: 30px;
-  height: 30px;
-  background-color: #fff;
-}
-
-#box3 {
-  width: 30px;
-  height: 30px;
-  background-color: #fff;
-}
-
-#boxWhat, #boxWhat2 {
-  width: 30px;
-  height: 30px;
+  width: 30.3px; /* <<< SHOULD BE EDITED */
+  height: 30.3px; /* <<< SHOULD BE EDITED */
+  /* width: 31.25px;
+  height: 31.25px; */
   background-color: #fff;
 }
 
 .box-reset{
   background-color: #000;
 }
-  /*  */
-  /*  */
-  /*  */
-  /*  */
-  /*  */
+ #newGrid {
+   padding: 0.8rem;
+   margin-left: 38rem;;
+ }
